@@ -35,11 +35,12 @@ $fruit = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // ============================================================
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $naam  = $_POST["naam"];
-    $kleur = $_POST["kleur"];
+    $naam  = htmlspecialchars($_POST["naam"]);
+    $kleur = htmlspecialchars($_POST["kleur"])  ;
     $stmt = $pdo->prepare("INSERT INTO fruitmand (naam, kleur) VALUES (?, ?)");
     $stmt->execute([$naam, $kleur]);
     header("Location: fruitmandje.php");
+
     exit;
 }
 
