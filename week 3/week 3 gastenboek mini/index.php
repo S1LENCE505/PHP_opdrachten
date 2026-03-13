@@ -1,7 +1,5 @@
 <?php
 require_once 'read.php';
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +11,7 @@ require_once 'read.php';
 </head>
 
 <body>
+
     <h1>gastenboek</h1>
     <form action="">
         <input type="hidden" name="id">
@@ -21,21 +20,32 @@ require_once 'read.php';
     </form>
     <?php
 
+    // foreach ($rijen as $message){
+    //     $htmlstring = "
+    //     <form action='delete.php ' action='post'>
+    //     <input type='hidden' name='id' value='$message[id]'>
+    //     <label for='Author'>Author:</label>
+    //     <p>$message[Author]</p>
+    //     <label for='message'>Message:</label>
+    //     <p>$message[message]</p>
+    //     <button>Delete</button>
+    //     <button>Edit</button>
+    //     </form>";   
+    //     echo $htmlstring;
+    //     }
+    foreach ($rijen as $rij) {
+        echo '<form action="edit.php" method="post">';
+        echo '<input type="hidden" name ="id" value="' . $rij['id'] . '">';
+        echo "Author: " . $rij['Author'];
+        echo '<br>';
+        echo '<input type="text" name="message" value="' . $rij['message'] . '">';
+        echo '<br>';
+        echo '<br>';
+        echo '<input type=submit>';
+        echo '</form>';
+    }
 
 
-
-    foreach ($rijen as $message){
-        $htmlstring = "
-        <form action='delete.php ' action='post'>
-        <input type='hidden' name='id' value='$message[id]'>
-        <label for='Author'>Author:</label>
-        <p>$message[Author]</p>
-        <label for='message'>Message:</label>
-        <p>$message[message]</p>
-        <button>Delete</button>
-        </form>";   
-        echo $htmlstring;
-        }
     ?>
     <h2>create new message</h2>
     <form action="create.php" method="post">
