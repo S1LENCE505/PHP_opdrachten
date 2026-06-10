@@ -1,0 +1,17 @@
+{
+    "name": "php/app",
+    "autoload": {
+        "psr-4": {
+            "Php\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robbe G",
+            "email": "robbegrootaarts@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
